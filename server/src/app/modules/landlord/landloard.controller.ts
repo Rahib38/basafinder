@@ -50,7 +50,18 @@ const updateLandLoardsListing=catchAsync(async(req,res)=>{
 })
 
 
+const deleteLandloardsListing=catchAsync(async(req,res)=>{
+  const id =req.params.id
+  const result = await landLoardsService.deleteLandloardsListing(id)
+  sendResponse(res,{
+    success:true,
+    message:"Remove a rental listing!!!!",
+    statusCode:StatusCodes.OK,
+    data:result
+  })
+})
+
 
 export const landloardsController = {
-  createLandloardsListing,getLandLoardsListing,getSingleLandLoardsListing,updateLandLoardsListing
+  createLandloardsListing,getLandLoardsListing,getSingleLandLoardsListing,updateLandLoardsListing,deleteLandloardsListing
 };
