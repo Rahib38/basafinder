@@ -14,6 +14,7 @@ const userSchema = new Schema<TUser>(
     email: { type: String, required: true, unique: true },
     number: { type: String, default:'' },
     password: { type: String, required: true, trim: true },
+    isBlocked: { type: Boolean, default:false },
     role: {
       type: String,
       enum: ['tenant', 'admin', 'landlord'],
