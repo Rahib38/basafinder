@@ -1,3 +1,4 @@
+import { RentalRequest } from '../tenant/tenant.model';
 import { IListing } from './landlord.interface';
 import { Listing } from './landlord.model';
 
@@ -26,10 +27,18 @@ const deleteLandloardsListing = async (_id: string) => {
   return result;
 };
 
+const getLandloardsRequest=async(_id:string,query:Record<string,unknown>)=>{
+
+  const result = await RentalRequest.find(query,_id)
+  return result
+
+}
+
+
 export const landLoardsService = {
   createLandloardsListing,
   getAllLandloardsListing,
   singleGetAllLandloardsListing,
   updateLandloardsListing,
-  deleteLandloardsListing,
+  deleteLandloardsListing,getLandloardsRequest
 };

@@ -4,4 +4,5 @@ export type TUser = {
   number: string;
   password: string;
   role?: 'tenant' | 'admin' | 'landlord';
+  isBlocked?:boolean
 };
