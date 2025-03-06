@@ -61,7 +61,20 @@ const deleteLandloardsListing=catchAsync(async(req,res)=>{
   })
 })
 
+const getAllLandloardsRequest=catchAsync(async(req,res)=>{
+  const id=req.params.id
+  const query= req.query
+  const result = await landLoardsService.getLandloardsRequest(id,query)
+  sendResponse(res,{
+    success:true,
+    message:"Retrieve all rental requests for the listings posted by the landlord!!!!",
+    statusCode:StatusCodes.OK,
+    data:result
+  })
+})
+
 
 export const landloardsController = {
-  createLandloardsListing,getLandLoardsListing,getSingleLandLoardsListing,updateLandLoardsListing,deleteLandloardsListing
+  createLandloardsListing,getLandLoardsListing,getSingleLandLoardsListing,updateLandLoardsListing,deleteLandloardsListing,
+  getAllLandloardsRequest
 };
